@@ -16,9 +16,9 @@ const navbar = () => {
         <div className="text-2xl font-bold text-accentPrimary">Urbánika</div>
       </div>
       <div className="flex space-x-4">
-        <Link href="/" className="text-black hover:text-colorPrimary">Home</Link>
-        <Link href="/about" className="text-black hover:text-colorPrimary">About</Link>
-        <Link href="/docs" className="text-black hover:text-colorPrimary">Docs</Link>
+        <Link href="/home" className="text-black hover:text-colorPrimary">Home</Link>
+        <Link href="/#about" className="text-black hover:text-colorPrimary">About</Link>
+        <Link href="/#docs" className="text-black hover:text-colorPrimary">Docs</Link>
       </div>
     </nav>
   )
