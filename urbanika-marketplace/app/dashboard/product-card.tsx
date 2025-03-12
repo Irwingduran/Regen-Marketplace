@@ -5,10 +5,10 @@ interface ProductCardProps {
   name: string
   rating: number
   price: number
-  image: string
+ // image: string
 }
 
-export function ProductCard({ name, rating, price, image }: ProductCardProps) {
+export function ProductCard({ name, rating, price }: ProductCardProps) {
   return (
     <Card className="overflow-hidden bg-[#d4f7e2] hover:bg-[#c5f0d6] transition-colors cursor-pointer">
       <div className="aspect-square relative">
