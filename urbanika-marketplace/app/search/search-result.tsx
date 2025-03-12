@@ -25,7 +25,7 @@ export default function SearchPage() {
   const [searchQuery, setSearchQuery] = useState("sustainable products")
   const [currentPage, setCurrentPage] = useState(1)
   const [sortBy, setSortBy] = useState("Score")
-  const [isLoading, setIsLoading] = useState(false)
+  // const [isLoading, setIsLoading] = useState(false)
 
 // data simulate 
   const products: Product[] = [

@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 import { Search, ShoppingCart, LayoutDashboard, User } from "lucide-react";
 
 
-const menu = () => {
+const Menu = () => {
 
     const pathname = usePathname();
 
@@ -14,8 +14,8 @@ const menu = () => {
       { href: "/search", icon: <Search />, label: "Buscar" },
       { href: "/cart", icon: <ShoppingCart />, label: "Carrito" },
       { href: "/home", icon: <Image src="/logobnw.png" alt="Menu" width={40} height={40} />, label: "Inicio" },
-      { href: "/dashboard", icon: <LayoutDashboard />, label: "Pedidos" },
-      { href: "/profile", icon: <User />, label: "Perfil" },
+      { href: "/dashboard", icon: <LayoutDashboard />, label: "Dashboard" },
+      { href: "/auth/login", icon: <User />, label: "Login" },
     ];
   
     return (
@@ -31,4 +31,4 @@ const menu = () => {
     );
   };  
 
-export default menu
+export default Menu
