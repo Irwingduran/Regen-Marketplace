@@ -19,6 +19,7 @@ interface Product {
   score: number
   image: string
   tags: string[]
+  route: string
 }
 
 export default function SearchPage() {
@@ -29,25 +30,95 @@ export default function SearchPage() {
   const [isLoading, setIsLoading] = useState(false)
   const [products, setProducts] = useState<Product[]>([])
 
+
+  const productsData = [
+    {
+      id: 1,
+      name: "Biodegradable Plant Pots",
+      brand: "Zero Waste",
+      price: 19.99,
+      score: 85,
+      image: "/placeholder.svg?height=200&width=200",
+      tags: ["recycled", "biodegradable", "plastic-free"],
+      route: "/product/biodegradable-plant-pots",
+    },
+    {
+      id: 2,
+      name: "Eco-Friendly Water Bottle",
+      brand: "Green Life",
+      price: 24.99,
+      score: 90,
+      image: "/placeholder.svg?height=200&width=200",
+      tags: ["reusable", "BPA-free", "eco-friendly"],
+      route: "/product/eco-friendly-water-bottle",
+    },
+    {
+      id: 3,
+      name: "Solar Power Bank",
+      brand: "EcoCharge",
+      price: 45.99,
+      score: 88,
+      image: "/placeholder.svg?height=200&width=200",
+      tags: ["solar-powered", "sustainable", "eco-friendly"],
+      route: "/product/solar-power-bank",
+    },
+    {
+      id: 4,
+      name: "Bamboo Cutlery Set",
+      brand: "Natural Living",
+      price: 15.99,
+      score: 92,
+      image: "/placeholder.svg?height=200&width=200",
+      tags: ["biodegradable", "plastic-free", "sustainable"],
+      route: "/product/bamboo-cutlery-set",
+    },
+    {
+      id: 5,
+      name: "Recycled Paper Notebook",
+      brand: "EcoWrite",
+      price: 9.99,
+      score: 87,
+      image: "/placeholder.svg?height=200&width=200",
+      tags: ["recycled", "tree-free", "eco-friendly"],
+      route: "/product/recycled-paper-notebook",
+    },
+    {
+      id: 6,
+      name: "Organic Cotton Tote",
+      brand: "Pure Earth",
+      price: 12.99,
+      score: 89,
+      image: "/placeholder.svg?height=200&width=200",
+      tags: ["organic", "reusable", "sustainable"],
+      route: "/product/organic-cotton-tote",
+    },
+    {
+      id: 7,
+      name: "Bamboo Toothbrush",
+      brand: "EcoSmile",
+      price: 4.99,
+      score: 86,
+      image: "/placeholder.svg?height=200&width=200",
+      tags: ["biodegradable", "plastic-free", "sustainable"],
+      route: "/product/bamboo-toothbrush",
+    },
+    {
+      id: 8,
+      name: "Solar Garden Lights",
+      brand: "SunGlow",
+      price: 29.99,
+      score: 91,
+      image: "/placeholder.svg?height=200&width=200",
+      tags: ["solar-powered", "energy-efficient", "eco-friendly"],
+      route: "/product/solar-garden-lights",
+    }
+  ];
+
   // Simulate fetching products
   useEffect(() => {
     setIsLoading(true)
-
-    // Simulate API delay
     const timer = setTimeout(() => {
-      const dummyProducts: Product[] = Array(8)
-        .fill(null)
-        .map((_, index) => ({
-          id: index + 1,
-          name: "Biodegradable Plant Pots",
-          brand: "Zero Waste",
-          price: 19.99,
-          score: 85,
-          image: "/placeholder.svg?height=200&width=200",
-          tags: ["recycled", "biodegradable", "plastic-free"],
-        }))
-
-      setProducts(dummyProducts)
+      setProducts(productsData)
       setIsLoading(false)
     }, 500)
 

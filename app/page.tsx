@@ -13,53 +13,54 @@ const Home = () => {
     {
       title: "Quick Start",
       description: "Learn how to set up and use our platform in minutes.",
-      link: "/docs/quick-start",
+      link: "/developing",
       icon: "🚀",
     },
     {
       title: "API",
       description: "Detailed API documentation for developers.",
-      link: "/docs/api",
+      link: "/developing",
       icon: "📚",
     },
     {
       title: "Tutorials",
       description: "Step-by-step guides to master all features.",
-      link: "/docs/tutorials",
+      link: "/developing",
       icon: "🎓",
     },
     {
       title: "FAQ",
       description: "Answers to our users' most common questions.",
-      link: "/docs/faq",
+      link: "/developing",
       icon: "❓",
     },
     {
       title: "Changelog",
       description: "Stay up to date with the latest updates and improvements.",
-      link: "/docs/changelog",
+      link: "/developing",
       icon: "📜",
     },
     {
       title: "Support",
       description: "Contact our support team for personalized help.",
-      link: "/docs/support",
+      link: "/developing",
       icon: "🛠️",
     },
   ];
 
 return (
 <> 
-  <div className="min-h-screen relative">
+  <div>
       <Navbar/>
-      <div className="bg-gradient-to-b from-blue-40/90 to-blue-100/90 flex flex-col items-center justify-center min-h-screen">
+      <div className="bg-gradient-to-b from-blue-40/90 to-blue-100/90 flex flex-col items-center justify-center  overflow-hidden">
         <Image
           src="/img/backgroundimg321.png"
           alt="Background"
           fill
-          className="object-cover -z-10"
+          className="object-cover -z-10 opacity-90"
           priority
           quality={100}
+          
         />
         
         <section className="flex flex-col items-center justify-center h-[calc(100vh-64px)] px-4">
@@ -142,7 +143,7 @@ return (
             </ul>
 
             {/* Button */}
-            <Link href="https://x.com/0xUrbanika" target='_blank'>
+            <Link href="https://urbanika.xyz" target='_blank'>
             <Button
               className="mt-6 bg-colorPrimary text-white px-6 py-3 rounded-xl font-semibold hover:bg-accentPrimary transition-colors"
             >

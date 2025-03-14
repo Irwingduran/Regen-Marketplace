@@ -34,7 +34,7 @@ const footer = () => {
             <Github className="h-5 w-5" />
           </Link>
         </div>
-        <div className="text-center text-xs text-gray-500">© 2025 Urbánika. All rights reserved.</div>
+        <div className="text-center text-xs text-gray-500">© 2025 <a href="https://urbanika.xyz" target='_blank' className='hover:text-colorPrimary'>Urbánika.</a> All rights reserved.</div>
       </footer>
     </div>
   )
