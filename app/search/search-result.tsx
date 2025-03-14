@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import { ChevronDown, ChevronLeft, Filter, Search } from "lucide-react"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
@@ -8,7 +8,6 @@ import { Separator } from "@/components/ui/separator"
 import { ProductCard } from "./product-card"
 import { FilterBadge } from "./filter-badge"
 import { AnimatePresence } from "framer-motion"
-import Menu from "@/components/menu"
 import Link from "next/link"
 
 interface Product {
@@ -26,33 +25,30 @@ export default function SearchPage() {
   const [searchQuery, setSearchQuery] = useState("sustainable products")
   const [currentPage, setCurrentPage] = useState(1)
   const [sortBy, setSortBy] = useState("Score")
-  const [isLoading, setIsLoading] = useState(false)
-  const [products, setProducts] = useState<Product[]>([])
+  // const [isLoading, setIsLoading] = useState(false)
 
-  // Simulate fetching products
-  useEffect(() => {
-    setIsLoading(true)
-
-    // Simulate API delay
-    const timer = setTimeout(() => {
-      const dummyProducts: Product[] = Array(8)
-        .fill(null)
-        .map((_, index) => ({
-          id: index + 1,
-          name: "Biodegradable Plant Pots",
-          brand: "Zero Waste",
-          price: 19.99,
-          score: 85,
-          image: "/placeholder.svg?height=200&width=200",
-          tags: ["recycled", "biodegradable", "plastic-free"],
-        }))
-
-      setProducts(dummyProducts)
-      setIsLoading(false)
-    }, 500)
-
-    return () => clearTimeout(timer)
-  }, [])
+// data simulate 
+  const products: Product[] = [
+    {
+      id: 1,
+      name: "Biodegradable Plant Pots",
+      brand: "Zero Waste",
+      price: 19.99,
+      score: 85,
+      image: "/placeholder.svg?height=200&width=200",
+      tags: ["recycled", "biodegradable", "plastic-free"],
+    },
+    {
+      id: 2,
+      name: "Eco-Friendly Water Bottle",
+      brand: "Green Life",
+      price: 24.99,
+      score: 90,
+      image: "/placeholder.svg?height=200&width=200",
+      tags: ["reusable", "BPA-free", "eco-friendly"],
+    },
+    // Agrega más productos según sea necesario
+  ]
 
   const removeFilter = (filter: string) => {
     setActiveFilters(activeFilters.filter((f) => f !== filter))
@@ -71,9 +67,9 @@ export default function SearchPage() {
   }
 
   return (
-    <div className="flex flex-col min-h-screen bg-gray-50 py-20">
-        <Menu/>
-      {/* Search Header */}
+    <div className="flex flex-col min-h-screen bg-gray-50">
+
+      {/* Search Header (temporal) */}
       <header className="p-4 sticky top-0 bg-gray-50 z-10 shadow-sm">
         <div className="flex items-center gap-2 max-w-4xl mx-auto">
           <Link href="/" className="text-gray-600 hover:text-gray-900 transition-colors">
@@ -101,6 +97,7 @@ export default function SearchPage() {
           </Button>
         </div>
       </header>
+
 
       {/* Active Filters */}
       {activeFilters.length > 0 && (
@@ -130,31 +127,11 @@ export default function SearchPage() {
 
       {/* Product Grid */}
       <main className="flex-1 p-4">
-        {isLoading ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 max-w-4xl mx-auto">
-            {Array(8)
-              .fill(null)
-              .map((_, index) => (
-                <div key={index} className="bg-white rounded-xl shadow-sm overflow-hidden animate-pulse">
-                  <div className="bg-gray-200 aspect-square"></div>
-                  <div className="p-3">
-                    <div className="h-4 bg-gray-200 rounded w-3/4 mb-2"></div>
-                    <div className="h-3 bg-gray-200 rounded w-1/2 mb-2"></div>
-                    <div className="flex justify-between items-center mt-2">
-                      <div className="h-4 bg-gray-200 rounded w-1/4"></div>
-                      <div className="h-8 bg-gray-200 rounded w-1/3"></div>
-                    </div>
-                  </div>
-                </div>
-              ))}
-          </div>
-        ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 max-w-4xl mx-auto">
-            {products.map((product) => (
-              <ProductCard key={product.id} {...product} />
-            ))}
-          </div>
-        )}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-4 max-w-4xl mx-auto">
+          {products.map((product) => (
+            <ProductCard key={product.id} {...product} />
+          ))}
+        </div>
       </main>
 
       {/* Pagination */}
@@ -181,4 +158,3 @@ export default function SearchPage() {
     </div>
   )
 }
-

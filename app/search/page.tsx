@@ -71,7 +71,7 @@ export default function SearchPage() {
   }
 
   return (
-    <div className="flex flex-col min-h-screen bg-gray-50 py-20">
+    <div className="flex flex-col min-h-screen bg-gray-50">
         <Menu/>
       {/* Search Header */}
       <header className="p-4 sticky top-0 bg-gray-50 z-10 shadow-sm">
