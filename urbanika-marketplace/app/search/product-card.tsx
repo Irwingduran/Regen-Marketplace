@@ -8,7 +8,6 @@ import Image from "next/image"
 import Link from "next/link"
 
 interface ProductCardProps {
-  id: number
   name: string
   brand: string
   price: number
@@ -17,7 +16,7 @@ interface ProductCardProps {
   tags: string[]
 }
 
-export function ProductCard({ id, name, brand, price, score, image, tags }: ProductCardProps) {
+export function ProductCard({ name, brand, price, score, image, tags }: ProductCardProps) {
   const [isHovered, setIsHovered] = useState(false)
   const [isAdding, setIsAdding] = useState(false)
 
