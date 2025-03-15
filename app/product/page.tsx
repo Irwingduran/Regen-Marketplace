@@ -4,9 +4,11 @@ import { useState, useRef, useEffect } from "react"
 import { ChevronLeft, Share2 } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
+import Menu from "@/components/menu"
 
 
 const Page = () => {
+  
     const [currentSlide, setCurrentSlide] = useState(0)
     const slidesRef = useRef<HTMLDivElement>(null)
   
@@ -47,7 +49,9 @@ const Page = () => {
     }, [currentSlide])
   
     return (
-      <div className="flex flex-col min-h-screen bg-gray-50">
+      <> 
+      <Menu/>
+      <div className="flex flex-col min-h-screen bg-gray-50" >
         <header className="flex items-center justify-between p-4 bg-white">
           <div className="flex items-center">
             <Link href="#" className="mr-4">
@@ -387,12 +391,13 @@ const Page = () => {
         </main>
   
         {/* Action Buttons */}
-        <div className="px-4 py-3 bg-white">
+        <div className="px-4 py-16 bg-white">
           <button className="w-full bg-green-500 text-white font-medium py-3 rounded-lg mb-2">Add to cart</button>
           <button className="w-full bg-green-100 text-green-600 font-medium py-3 rounded-lg">Request a quote</button>
         </div>
       </div>
+      </>
     )
   }
-
+  
 export default Page

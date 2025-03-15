@@ -19,7 +19,6 @@ interface Product {
   score: number
   image: string
   tags: string[]
-  route: string
 }
 
 export default function SearchPage() {
@@ -40,7 +39,6 @@ export default function SearchPage() {
       score: 85,
       image: "/placeholder.svg?height=200&width=200",
       tags: ["recycled", "biodegradable", "plastic-free"],
-      route: "/product/biodegradable-plant-pots",
     },
     {
       id: 2,
@@ -50,7 +48,6 @@ export default function SearchPage() {
       score: 90,
       image: "/placeholder.svg?height=200&width=200",
       tags: ["reusable", "BPA-free", "eco-friendly"],
-      route: "/product/eco-friendly-water-bottle",
     },
     {
       id: 3,
@@ -60,7 +57,6 @@ export default function SearchPage() {
       score: 88,
       image: "/placeholder.svg?height=200&width=200",
       tags: ["solar-powered", "sustainable", "eco-friendly"],
-      route: "/product/solar-power-bank",
     },
     {
       id: 4,
@@ -70,7 +66,6 @@ export default function SearchPage() {
       score: 92,
       image: "/placeholder.svg?height=200&width=200",
       tags: ["biodegradable", "plastic-free", "sustainable"],
-      route: "/product/bamboo-cutlery-set",
     },
     {
       id: 5,
@@ -80,7 +75,6 @@ export default function SearchPage() {
       score: 87,
       image: "/placeholder.svg?height=200&width=200",
       tags: ["recycled", "tree-free", "eco-friendly"],
-      route: "/product/recycled-paper-notebook",
     },
     {
       id: 6,
@@ -90,7 +84,6 @@ export default function SearchPage() {
       score: 89,
       image: "/placeholder.svg?height=200&width=200",
       tags: ["organic", "reusable", "sustainable"],
-      route: "/product/organic-cotton-tote",
     },
     {
       id: 7,
@@ -100,7 +93,6 @@ export default function SearchPage() {
       score: 86,
       image: "/placeholder.svg?height=200&width=200",
       tags: ["biodegradable", "plastic-free", "sustainable"],
-      route: "/product/bamboo-toothbrush",
     },
     {
       id: 8,
@@ -110,10 +102,8 @@ export default function SearchPage() {
       score: 91,
       image: "/placeholder.svg?height=200&width=200",
       tags: ["solar-powered", "energy-efficient", "eco-friendly"],
-      route: "/product/solar-garden-lights",
     }
   ];
-
   // Simulate fetching products
   useEffect(() => {
     setIsLoading(true)
