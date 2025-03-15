@@ -15,8 +15,8 @@ import {
   Users,
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { CategoryCard } from "./category-card"
-import { Carousel } from "./carousel"
+import { CategoryCard } from "./components/category-card"
+import { Carousel } from "./components/carousel"
 import Menu from "@/components/menu"
 
 const Dashboard = () => { 

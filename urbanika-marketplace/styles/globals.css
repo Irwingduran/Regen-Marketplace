@@ -2,8 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
-
 /* Swiper pagination customization */
 .swiper-pagination-bullet {
   background: white !important;

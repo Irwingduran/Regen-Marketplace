@@ -1,80 +1,157 @@
-'use client';
+import { ArrowLeft, ShoppingCart, Menu } from "lucide-react"
+import { Button } from "@/components/ui/button"
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
+import MenuPrincipal from "@/components/menu"
+import Link from "next/link"
 
-import React from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
-import 'swiper/css/pagination';
-import 'swiper/css/navigation';
-import { Pagination, Navigation } from 'swiper/modules';
+interface AddressProps {
+  id: string
+  type: string
+  isDefault?: boolean
+  addressLine1: string
+  addressLine2: string
+  city: string
+  state: string
+  pincode: string
+}
 
-const CheckoutPage: React.FC = () => {
+export default function AddressManagement() {
+  // Sample address data
+  const addresses: AddressProps[] = [
+    {
+      id: "1",
+      type: "Home",
+      isDefault: true,
+      addressLine1: "Address line 1",
+      addressLine2: "Address line 2",
+      city: "City",
+      state: "State",
+      pincode: "Pincode",
+    },
+    {
+      id: "2",
+      type: "Work",
+      addressLine1: "Address line 1",
+      addressLine2: "Address line 2",
+      city: "City",
+      state: "State",
+      pincode: "Pincode",
+    },
+    {
+      id: "3",
+      type: "John Wick",
+      addressLine1: "Address line 1",
+      addressLine2: "Address line 2",
+      city: "City",
+      state: "State",
+      pincode: "Pincode",
+    },
+  ]
+
+  const defaultAddress = addresses.find((address) => address.isDefault)
+  const otherAddresses = addresses.filter((address) => !address.isDefault)
+
   return (
-    <div className="bg-white p-8">
-      <Swiper
-        pagination={{
-          type: 'bullets',
-        }}
-        navigation={true}
-        modules={[Pagination, Navigation]}
-        className="mySwiper"
-      >
-        <SwiperSlide>
-          <div className="flex flex-col items-center justify-center p-8">
-            <h1 className="text-3xl font-bold mb-4">Smart water filter system</h1>
-            <p className="text-gray-600 mb-4">Advanced filtration with eco-friendly materials</p>
-            <div className="text-yellow-400 text-2xl mb-4">4.0/5.0</div>
-            <div className="text-center">
-              <h2 className="text-xl font-semibold mb-4">Our Global Impact</h2>
-              <div className="grid grid-cols-3 gap-4">
-                <div>
-                  <h3 className="text-lg font-bold">2.5M</h3>
-                  <p className="text-gray-600">Kg CO₂ Saved</p>
-                </div>
-                <div>
-                  <h3 className="text-lg font-bold">1.2M</h3>
-                  <p className="text-gray-600">L Water Preserved</p>
-                </div>
-                <div>
-                  <h3 className="text-lg font-bold">500K+</h3>
-                  <p className="text-gray-600">Active Users</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="flex flex-col items-center justify-center p-8">
-            <h2 className="text-xl font-semibold mb-4">Categories</h2>
-            <div className="grid grid-cols-2 gap-4">
-              <div className="bg-gray-100 p-4 rounded-lg">
-                <h3 className="text-lg font-bold">Solar solutions</h3>
-              </div>
-              <div className="bg-gray-100 p-4 rounded-lg">
-                <h3 className="text-lg font-bold">Water conservation</h3>
-              </div>
-            </div>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="flex flex-col items-center justify-center p-8">
-            <h2 className="text-xl font-semibold mb-4">Top Rated Solutions</h2>
-            <div className="grid grid-cols-2 gap-4">
-              <div className="bg-gray-100 p-4 rounded-lg">
-                <h3 className="text-lg font-bold">Smart Solar Panel</h3>
-                <p className="text-gray-600">$299</p>
-                <div className="text-yellow-400 text-xl">4.8</div>
-              </div>
-              <div className="bg-gray-100 p-4 rounded-lg">
-                <h3 className="text-lg font-bold">Water Filter</h3>
-                <p className="text-gray-600">$199</p>
-                <div className="text-yellow-400 text-xl">4.0</div>
-              </div>
-            </div>
-          </div>
-        </SwiperSlide>
-      </Swiper>
-    </div>
-  );
-};
+    <>
+    <MenuPrincipal/>
+    <div className="flex flex-col min-h-screen bg-gray-50">
+      {/* Header */}
+      <header className="flex items-center justify-between p-4 bg-white border-b">
+        <div className="flex items-center">
+          <Link href="#" className="mr-3">
+            <ArrowLeft className="w-6 h-6 text-gray-700" />
+          </Link>
+          <h1 className="text-xl font-medium text-gray-700">Your Addresses</h1>
+        </div>
+        <div className="flex items-center">
+          <Link href="#" className="mr-4">
+            <ShoppingCart className="w-6 h-6 text-gray-700" />
+          </Link>
+          <button>
+            <Menu className="w-6 h-6 text-gray-700" />
+          </button>
+        </div>
+      </header>
 
-export default CheckoutPage;
+      {/* Main content */}
+      <main className="flex-1 p-4">
+        {/* Current Default Address */}
+        <div className="mb-6">
+          <div className="flex items-center justify-between mb-4">
+            <h2 className="text-xl text-gray-600">Current Default Address</h2>
+            <Button variant="ghost" className="text-blue-600 font-medium">
+              + Add New
+            </Button>
+          </div>
+
+          {defaultAddress && (
+            <div className="bg-white rounded-lg p-4 shadow-sm border mb-6">
+              <div className="flex items-start">
+                <RadioGroup defaultValue={defaultAddress.id} className="mt-1">
+                  <RadioGroupItem
+                    value={defaultAddress.id}
+                    id={defaultAddress.id}
+                    className="text-blue-600 border-blue-600"
+                    checked
+                  />
+                </RadioGroup>
+                <div className="ml-4 flex-1">
+                  <h3 className="text-lg font-medium text-gray-700">{defaultAddress.type}</h3>
+                  <p className="text-gray-600 mt-1">
+                    {defaultAddress.addressLine1}, {defaultAddress.addressLine2},<br />
+                    {defaultAddress.city}, {defaultAddress.state}, {defaultAddress.pincode}
+                  </p>
+                  <div className="flex justify-end mt-2">
+                    <Button variant="ghost" className="text-green-500 font-medium">
+                      Edit
+                    </Button>
+                    <Button variant="ghost" className="text-green-500 font-medium">
+                      Delete
+                    </Button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
+
+        {/* Other Saved Addresses */}
+        <div>
+          <h2 className="text-xl text-gray-600 mb-4">Other Saved Addresses</h2>
+
+          {otherAddresses.map((address) => (
+            <div key={address.id} className="bg-white rounded-lg p-4 shadow-sm border mb-4">
+              <div className="flex items-start">
+                <RadioGroup defaultValue="" className="mt-1">
+                  <RadioGroupItem value={address.id} id={address.id} className="border-gray-400" />
+                </RadioGroup>
+                <div className="ml-4 flex-1">
+                  <h3 className="text-lg font-medium text-gray-700">{address.type}</h3>
+                  <p className="text-gray-600 mt-1">
+                    {address.addressLine1}, {address.addressLine2},<br />
+                    {address.city}, {address.state}, {address.pincode}
+                  </p>
+                  <div className="flex justify-end mt-2">
+                    <Button variant="ghost" className="text-green-500 font-medium">
+                      Edit
+                    </Button>
+                    <Button variant="ghost" className="text-green-500 font-medium">
+                      Delete
+                    </Button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </main>
+
+      {/* Footer */}
+      <footer className="p-4 py-16">
+        <Button className="w-full py-6 bg-green-500 hover:bg-green-600 text-white font-medium rounded-md">Next</Button>
+      </footer>
+    </div>
+    </>
+  )
+}
+
