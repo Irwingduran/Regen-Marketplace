@@ -28,27 +28,62 @@ export default function SearchPage() {
   // const [isLoading, setIsLoading] = useState(false)
 
 // data simulate 
-  const products: Product[] = [
-    {
-      id: 1,
-      name: "Biodegradable Plant Pots",
-      brand: "Zero Waste",
-      price: 19.99,
-      score: 85,
-      image: "/placeholder.svg?height=200&width=200",
-      tags: ["recycled", "biodegradable", "plastic-free"],
-    },
-    {
-      id: 2,
-      name: "Eco-Friendly Water Bottle",
-      brand: "Green Life",
-      price: 24.99,
-      score: 90,
-      image: "/placeholder.svg?height=200&width=200",
-      tags: ["reusable", "BPA-free", "eco-friendly"],
-    },
-    // Agrega más productos según sea necesario
-  ]
+const products: Product[] = [
+  {
+    id: 1,
+    name: "Biodegradable Plant Pots",
+    brand: "Zero Waste",
+    price: 19.99,
+    score: 85,
+    image: "/placeholder.svg?height=200&width=200",
+    tags: ["recycled", "biodegradable", "plastic-free"],
+  },
+  {
+    id: 2,
+    name: "Eco-Friendly Water Bottle",
+    brand: "Green Life",
+    price: 24.99,
+    score: 90,
+    image: "/placeholder.svg?height=200&width=200",
+    tags: ["reusable", "BPA-free", "eco-friendly"],
+  },
+  {
+    id: 3,
+    name: "Solar Power Bank",
+    brand: "EcoCharge",
+    price: 45.99,
+    score: 88,
+    image: "/placeholder.svg?height=200&width=200",
+    tags: ["solar-powered", "sustainable", "eco-friendly"],
+  },
+  {
+    id: 4,
+    name: "Bamboo Cutlery Set",
+    brand: "Natural Living",
+    price: 15.99,
+    score: 92,
+    image: "/placeholder.svg?height=200&width=200",
+    tags: ["biodegradable", "plastic-free", "sustainable"],
+  },
+  {
+    id: 5,
+    name: "Recycled Paper Notebook",
+    brand: "EcoWrite",
+    price: 9.99,
+    score: 87,
+    image: "/placeholder.svg?height=200&width=200",
+    tags: ["recycled", "tree-free", "eco-friendly"],
+  },
+  {
+    id: 6,
+    name: "Organic Cotton Tote",
+    brand: "Pure Earth",
+    price: 12.99,
+    score: 89,
+    image: "/placeholder.svg?height=200&width=200",
+    tags: ["organic", "reusable", "sustainable"],
+  }
+]
 
   const removeFilter = (filter: string) => {
     setActiveFilters(activeFilters.filter((f) => f !== filter))
