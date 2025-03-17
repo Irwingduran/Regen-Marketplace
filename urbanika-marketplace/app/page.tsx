@@ -120,25 +120,26 @@ return (
               Title
             </h3>
             <p className="text-gray-600 leading-relaxed">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ab, adipisci cum sed magnam dolorum officiis qui error modi accusantium obcaecati quod. Vel sunt mollitia consequuntur reprehenderit saepe est sequi dolor!
-            </p>
+              Urbanika is a pioneering urban development firm creating smart, regenerative cities through sustainable technologies.
             <p className="text-gray-600 leading-relaxed">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae earum, dicta recusandae assumenda temporibus hic molestiae ipsa repellat ad eum sit ut neque eveniet minus dolor alias iste ratione eligendi.
+              The Urbanika Regen Marketplace connects construction companies with verified eco-technology providers.
             </p>
 
             {/* List */}
             <ul className="space-y-3">
               <li className="flex items-center space-x-3">
                 <span className="w-2 h-2 bg-green-500 rounded-full"></span>
-                <span className="text-gray-700">point one</span>
+                <span className="text-gray-700">Save 30-40% on operational costs while reducing your environmental footprint
+</span>
               </li>
               <li className="flex items-center space-x-3">
                 <span className="w-2 h-2 bg-green-500 rounded-full"></span>
-                <span className="text-gray-700">point two</span>
+                <span className="text-gray-700">Find great sustainable solutions in minutes, not weeks, with AI-powered matching
+</span>
               </li>
               <li className="flex items-center space-x-3">
                 <span className="w-2 h-2 bg-green-500 rounded-full"></span>
-                <span className="text-gray-700">point three</span>
+                <span className="text-gray-700">Meet regulatory requirements and enhance brand value through verified environmental credentials</span>
               </li>
             </ul>
 
