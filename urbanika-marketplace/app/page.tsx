@@ -101,7 +101,7 @@ return (
             className="relative h-96 rounded-xl overflow-hidden shadow-2xl"
           >
             <Image
-              src="/about-image.jpg" 
+              src="/img/about-image.png" 
               alt="about us"
               fill
               className="object-cover"

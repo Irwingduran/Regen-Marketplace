@@ -8,7 +8,6 @@ import Image from "next/image"
 import Link from "next/link"
 
 interface ProductCardProps {
-  id: number
   name: string
   brand: string
   price: number
@@ -17,7 +16,7 @@ interface ProductCardProps {
   tags: string[]
 }
 
-export function ProductCard({ id, name, brand, price, score, image, tags }: ProductCardProps) {
+export function ProductCard({ name, brand, price, score, image, tags }: ProductCardProps) {
   const [isHovered, setIsHovered] = useState(false)
   const [isAdding, setIsAdding] = useState(false)
 
@@ -36,8 +35,7 @@ export function ProductCard({ id, name, brand, price, score, image, tags }: Prod
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      {/* Use the `id` prop in the Link */}
-      <Link href={`/product/${id}`}>
+      <Link href={`/product`}>
         <div className="relative">
           <div className="absolute top-2 right-2 z-10">
             <div className="bg-green-400 text-white rounded-full h-10 w-10 flex items-center justify-center font-medium">
@@ -45,7 +43,7 @@ export function ProductCard({ id, name, brand, price, score, image, tags }: Prod
             </div>
           </div>
           <div
-            className={`bg-green-50 aspect-square relative transition-transform duration-300 ${isHovered ? "scale-105" : "scale-100"}`}
+            className={`bg-white aspect-square relative transition-transform duration-300 ${isHovered ? "scale-105" : "scale-100"}`}
           >
             <Image src={image || "/placeholder.svg"} alt={name} fill className="object-cover p-4" />
             <div className="absolute bottom-2 left-2 flex gap-1">
@@ -63,8 +61,7 @@ export function ProductCard({ id, name, brand, price, score, image, tags }: Prod
         </div>
       </Link>
       <div className="p-3">
-        {/* Use the `id` prop in the Link */}
-        <Link href={`/product/${id}`}>
+        <Link href={`/product`}>
           <h3 className="font-medium text-gray-800 hover:text-green-600 transition-colors">{name}</h3>
         </Link>
         <p className="text-sm text-gray-400">{brand}</p>
@@ -82,3 +79,4 @@ export function ProductCard({ id, name, brand, price, score, image, tags }: Prod
     </Card>
   )
 }
+

@@ -22,15 +22,15 @@ export default function HeroCarousel() {
     },
     {
         id: 2,
-        image: "/img/water-filter.jpeg",
-        title: "Smart water filter system",
-        description: "Advanced filtration with eco-friendly materials",
+        image: "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.30808-6/458965918_7957811400981037_5566549123005287347_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=cf85f3&_nc_ohc=8lAsIlp8hh4Q7kNvgGs1Vnu&_nc_zt=23&_nc_ht=scontent-dfw5-2.xx&_nc_gid=GQzHibv4KLpRXtQit6lEOA&oh=00_AYEjQliPexyMuSkmZ8fu_Wf_rGb7_NgNdESjB1V8jtoJZA&oe=67DDC565",
+        title: "Organic Soil Stabilizer",
+        description: "Improves the mechanical characteristics of the materials used in road construction and stabilization",
       },
       {
         id: 3,
-        image: "/img/water-filter.jpeg",
-        title: "Smart water filter system",
-        description: "Advanced filtration with eco-friendly materials",
+        image: "/img/home-image.webp",
+        title: "Eco-Cement",
+        description: "Increasingly sustainable cement, reducing the carbon footprint of its manufacture",
       },
    
   ]

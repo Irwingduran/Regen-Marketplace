@@ -1,8 +1,10 @@
+"use client"
 import { ArrowLeft, ShoppingCart, Menu } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import MenuPrincipal from "@/components/menu"
 import Link from "next/link"
+import { useRouter } from 'next/navigation'
 
 interface AddressProps {
   id: string
@@ -16,6 +18,7 @@ interface AddressProps {
 }
 
 export default function AddressManagement() {
+  const router = useRouter();
   // Sample address data
   const addresses: AddressProps[] = [
     {
@@ -58,9 +61,9 @@ export default function AddressManagement() {
       {/* Header */}
       <header className="flex items-center justify-between p-4 bg-white border-b">
         <div className="flex items-center">
-          <Link href="#" className="mr-3">
+          <Button onClick={() => router.back()} className="mr-3">
             <ArrowLeft className="w-6 h-6 text-gray-700" />
-          </Link>
+          </Button>
           <h1 className="text-xl font-medium text-gray-700">Your Addresses</h1>
         </div>
         <div className="flex items-center">
@@ -148,7 +151,7 @@ export default function AddressManagement() {
 
       {/* Footer */}
       <footer className="p-4 py-16">
-        <Button className="w-full py-6 bg-green-500 hover:bg-green-600 text-white font-medium rounded-md">Next</Button>
+       <Link href="/checkout/pay"> <Button className="w-full py-6 bg-green-500 hover:bg-green-600 text-white font-medium rounded-md">Next</Button></Link>
       </footer>
     </div>
     </>

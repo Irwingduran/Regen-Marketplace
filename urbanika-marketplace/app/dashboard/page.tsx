@@ -170,9 +170,9 @@ const Dashboard = () => {
   Urbánika&apos;s Regen Marketplace brings the finest of humans to exchange resources. Think you run a business with
   impact? Join the movement
 </p>
-        <Button className="w-full py-6 text-white font-medium rounded-full bg-[#3EB57F] hover:bg-[#35a06f]">
+       <Link href="/registration"><Button className="w-full py-6 text-white font-medium rounded-full bg-[#3EB57F] hover:bg-[#35a06f]">
           Become a Seller
-        </Button>
+        </Button></Link>
       </section>
 
       {/* Featured Suppliers */}
@@ -218,7 +218,7 @@ const Dashboard = () => {
       </section>
 
       {/* How It Works */}
-      <section className="px-4 py-6">
+      <section className="px-4 py-16">
         <h3 className="text-lg font-semibold text-gray-800 mb-3">How It Works</h3>
         <div className="space-y-4">
           {[
