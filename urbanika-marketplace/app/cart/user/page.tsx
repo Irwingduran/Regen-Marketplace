@@ -4,6 +4,8 @@ import { useState } from "react"
 import Link from "next/link"
 import { ArrowLeft, ShoppingCart, Menu, Trash2, Plus, Minus } from "lucide-react"
 import MenuPrincipal from "@/components/menu"
+import { Button } from "@/components/ui/button"
+import { useRouter } from 'next/navigation'
 
 interface CartQuantities {
     netflix: number;
@@ -12,6 +14,8 @@ interface CartQuantities {
   }
 
 export default function CartPage() {
+  const router = useRouter();
+
   const [quantities, setQuantities] = useState({
     netflix: 1,
     filter: 1,
@@ -31,10 +35,10 @@ export default function CartPage() {
     <div className="min-h-screen bg-white">
       {/* Header */}
       <header className="sticky top-0 z-10 bg-white border-b flex items-center justify-between p-4">
-        <Link href="/" className="flex items-center text-gray-700">
+        <Button onClick={() => router.back()} className="flex items-center text-gray-700">
           <ArrowLeft className="h-5 w-5" />
           <span className="ml-4 text-lg font-medium">Cart</span>
-        </Link>
+        </Button>
         <div className="flex items-center gap-4">
           <ShoppingCart className="h-5 w-5 text-gray-700" />
           <Menu className="h-5 w-5 text-gray-700" />
