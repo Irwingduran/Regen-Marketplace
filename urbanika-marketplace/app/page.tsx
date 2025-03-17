@@ -117,10 +117,10 @@ return (
             className="space-y-6"
           >
             <h3 className="text-3xl font-bold text-gray-800">
-              Urbanika is a
+              Urbanika Regen Marketplace
             </h3>
             <p className="text-gray-600 leading-relaxed">
-              Pioneering urban development firm creating smart, regenerative cities through sustainable technologies.
+              Urbanika is a pioneering urban development firm creating smart, regenerative cities through sustainable technologies.
             </p>
             <p className="text-gray-600 leading-relaxed">
               The Urbanika Regen Marketplace connects construction companies with verified eco-technology providers.
