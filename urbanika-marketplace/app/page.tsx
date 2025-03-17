@@ -117,10 +117,11 @@ return (
             className="space-y-6"
           >
             <h3 className="text-3xl font-bold text-gray-800">
-              Title
+              Urbanika is a
             </h3>
             <p className="text-gray-600 leading-relaxed">
-              Urbanika is a pioneering urban development firm creating smart, regenerative cities through sustainable technologies.
+              Pioneering urban development firm creating smart, regenerative cities through sustainable technologies.
+            </p>
             <p className="text-gray-600 leading-relaxed">
               The Urbanika Regen Marketplace connects construction companies with verified eco-technology providers.
             </p>
@@ -129,17 +130,15 @@ return (
             <ul className="space-y-3">
               <li className="flex items-center space-x-3">
                 <span className="w-2 h-2 bg-green-500 rounded-full"></span>
-                <span className="text-gray-700">Save 30-40% on operational costs while reducing your environmental footprint
-</span>
+                <span className="text-gray-700">Save 30-40% on operational costs while reducing your environmental footprint</span>
               </li>
               <li className="flex items-center space-x-3">
                 <span className="w-2 h-2 bg-green-500 rounded-full"></span>
-                <span className="text-gray-700">Find great sustainable solutions in minutes, not weeks, with AI-powered matching
-</span>
+                <span className="text-gray-700">Find great sustainable solutions in minutes, not weeks, with AI-powered matching</span>
               </li>
               <li className="flex items-center space-x-3">
                 <span className="w-2 h-2 bg-green-500 rounded-full"></span>
-                <span className="text-gray-700">Meet regulatory requirements and enhance brand value through verified environmental credentials</span>
+                <span className="text-gray-700"> Meet regulatory requirements and enhance brand value through verified environmental credentials</span>
               </li>
             </ul>
 
