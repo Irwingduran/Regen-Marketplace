@@ -218,7 +218,7 @@ const Dashboard = () => {
       </section>
 
       {/* How It Works */}
-      <section className="px-4 py-6">
+      <section className="px-4 py-16">
         <h3 className="text-lg font-semibold text-gray-800 mb-3">How It Works</h3>
         <div className="space-y-4">
           {[

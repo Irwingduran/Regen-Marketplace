@@ -1,7 +1,7 @@
 "use client"
 
 import * as React from "react"
-import { X, Filter, ShoppingCart, Menu } from 'lucide-react'
+import { X, Filter, Menu } from 'lucide-react'
 import { Slider } from "@/components/ui/slider"
 import { Button } from "@/components/ui/button"
 import { Separator } from "@/components/ui/separator"
@@ -9,12 +9,16 @@ import { Badge } from "@/components/ui/badge"
 import { Input } from "@/components/ui/input"
 import { cn } from "@/lib/utils"
 import MenuPrincipal from "@/components/menu"
+import { useRouter } from 'next/navigation'
+
+
 export default function FilterPanel() {
-  const [priceRange, setPriceRange] = React.useState([600, 1400])
+  const router = useRouter();
+  const [priceRange, setPriceRange] = React.useState([100, 1400])
   const [selectedFilters, setSelectedFilters] = React.useState({
-    preferences: ["Awareness", "Water sampling", "Digital"],
+    preferences: ["Awareness", "Water sampling", "Physical"],
     categories: ["Awareness", "Water sampling"],
-    productType: ["Digital"],
+    productType: ["Physical"],
     payOnDelivery: "Available",
     discount: "",
     sortByCost: "",
@@ -76,28 +80,22 @@ export default function FilterPanel() {
       <div className="flex justify-between items-center p-4 border-b">
         <div className="w-8"></div>
         <div></div>
-        <div className="flex gap-4">
-          <ShoppingCart className="h-6 w-6 text-gray-700" />
-          <Menu className="h-6 w-6 text-gray-700" />
-        </div>
+       
       </div>
       
       {/* Filter Header */}
       <div className="flex justify-between items-center p-4 border-b">
-        <div className="flex items-center gap-2">
-          <Filter className="h-5 w-5" />
-          <span className="text-lg font-medium">Filter</span>
+          <div className="flex items-center gap-2">
+            <Filter className="h-5 w-5" />
+            <span className="text-lg font-medium">Filter</span>
+          </div>
+          <div className="flex items-center gap-4">
+            {/* Aquí está el cambio */}
+            <button onClick={() => router.back()}>
+              <X className="h-5 w-5" />
+            </button>
+          </div>
         </div>
-        <div className="flex items-center gap-4">
-          <Button 
-            className="text-gray-500 text-sm"
-            onClick={clearAll}
-          >
-            Clear All
-          </Button>
-          <a href="/home"><X className="h-5 w-5" /></a>
-        </div>
-      </div>
 
       {/* Filter Content - Scrollable */}
       <div className="flex-1 overflow-auto">
@@ -180,7 +178,7 @@ export default function FilterPanel() {
             <span className="text-gray-600">Filter by Product/Service Type</span>
           </div>
           <div className="flex flex-wrap gap-2 mb-2">
-            {["Digital", "Physical", "Expert Services"].map((type) => (
+            {["Physical", "Digital", "Expert Services"].map((type) => (
               <Badge 
                 key={type}
                 variant="outline" 
@@ -300,7 +298,7 @@ export default function FilterPanel() {
               )}
               onClick={() => handleFilterClick('sortByCurrency', 'India Rupee ₹')}
             >
-              India Rupee ₹
+              USD $
             </span>
             <span 
               className={cn(
@@ -332,11 +330,11 @@ export default function FilterPanel() {
               className="my-4"
             />
           </div>
-          <div className="flex justify-between">
+          <div className="flex justify-between py-16">
             <div className="w-[120px]">
               <span className="text-sm text-gray-500">Minimum</span>
               <div className="flex items-center border rounded-lg p-2 mt-1">
-                <span className="text-gray-700 mr-1">₹</span>
+                <span className="text-gray-700 mr-1">$</span>
                 <Input 
                   type="number" 
                   value={priceRange[0]} 
@@ -348,7 +346,7 @@ export default function FilterPanel() {
             <div className="w-[120px]">
               <span className="text-sm text-gray-500">Maximum</span>
               <div className="flex items-center border rounded-lg p-2 mt-1">
-                <span className="text-gray-700 mr-1">₹</span>
+                <span className="text-gray-700 mr-1">$</span>
                 <Input 
                   type="number" 
                   value={priceRange[1]} 

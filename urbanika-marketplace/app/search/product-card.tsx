@@ -43,7 +43,7 @@ export function ProductCard({ name, brand, price, score, image, tags }: ProductC
             </div>
           </div>
           <div
-            className={`bg-green-50 aspect-square relative transition-transform duration-300 ${isHovered ? "scale-105" : "scale-100"}`}
+            className={`bg-white aspect-square relative transition-transform duration-300 ${isHovered ? "scale-105" : "scale-100"}`}
           >
             <Image src={image || "/placeholder.svg"} alt={name} fill className="object-cover p-4" />
             <div className="absolute bottom-2 left-2 flex gap-1">

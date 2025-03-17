@@ -10,6 +10,7 @@ import { FilterBadge } from "./filter-badge"
 import { AnimatePresence } from "framer-motion"
 import Menu from "@/components/menu"
 import Link from "next/link"
+import { useRouter } from 'next/navigation'
 
 interface Product {
   id: number
@@ -22,7 +23,8 @@ interface Product {
 }
 
 export default function SearchPage() {
-  const [activeFilters, setActiveFilters] = useState<string[]>(["Eco-certified", "High Impact", "Organic"])
+  const router = useRouter();
+  const [activeFilters, setActiveFilters] = useState<string[]>(["Eco-certified", "High Impact", "Sustainable"])
   const [searchQuery, setSearchQuery] = useState("sustainable products")
   const [currentPage, setCurrentPage] = useState(1)
   const [sortBy, setSortBy] = useState("Score")
@@ -33,76 +35,68 @@ export default function SearchPage() {
   const productsData = [
     {
       id: 1,
-      name: "Biodegradable Plant Pots",
-      brand: "Zero Waste",
+      name: "Specialized Concrete",
+      brand: "Ecological Concrete",
       price: 19.99,
       score: 85,
-      image: "/placeholder.svg?height=200&width=200",
-      tags: ["recycled", "biodegradable", "plastic-free"],
+      image: "https://holcimsoluciones.com/media/catalog/product/h/o/holcim_cemento_gris_apasco_ecoplanet_50_kg_frente.jpg?optimize=medium&bg-color=255,255,255&fit=bounds&height=700&width=700&canvas=700:700",
+      tags: ["recycled", "sustainable", "plastic-free"],
     },
     {
       id: 2,
-      name: "Eco-Friendly Water Bottle",
-      brand: "Green Life",
+      name: "Resim8",
+      brand: "Synthetic Hybrid Mineral-Polymer",
       price: 24.99,
       score: 90,
-      image: "/placeholder.svg?height=200&width=200",
-      tags: ["reusable", "BPA-free", "eco-friendly"],
+      image: "https://cdn.prod.website-files.com/6763c964d123d97fef0f8944/6763c964d123d97fef0f89e5_Our-Solution-Image-2-p-1080.png",
+      tags: ["recycled", "sustainable", "eco-friendly"],
     },
     {
       id: 3,
-      name: "Solar Power Bank",
-      brand: "EcoCharge",
+      name: "EV Charging Stations",
+      brand: "Electric Vehicle Charger",
       price: 45.99,
       score: 88,
-      image: "/placeholder.svg?height=200&width=200",
-      tags: ["solar-powered", "sustainable", "eco-friendly"],
+      image: "https://blinkcharging.com/_ipx/w_2048,q_75/https%3A%2F%2Fa-us.storyblok.com%2Ff%2F1016941%2F800x600%2F494f8c29bb%2Fblink-single-eco-pedestal.jpg%2Fm%2F1440x0?url=https%3A%2F%2Fa-us.storyblok.com%2Ff%2F1016941%2F800x600%2F494f8c29bb%2Fblink-single-eco-pedestal.jpg%2Fm%2F1440x0&w=2048&q=75",
+      tags: ["green-energy", "sustainable", "eco-friendly"],
     },
     {
       id: 4,
-      name: "Bamboo Cutlery Set",
-      brand: "Natural Living",
+      name: "Aluminum Foil",
+      brand: "Thermal Insulation Covers",
       price: 15.99,
       score: 92,
-      image: "/placeholder.svg?height=200&width=200",
+      image: "https://www.shelter.mx/images/img-rpr6.jpg",
       tags: ["biodegradable", "plastic-free", "sustainable"],
     },
     {
       id: 5,
-      name: "Recycled Paper Notebook",
-      brand: "EcoWrite",
+      name: "VIPAL",
+      brand: "Organic Soil Stabilizer",
       price: 9.99,
-      score: 87,
-      image: "/placeholder.svg?height=200&width=200",
+      score: 84,
+      image: "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.30808-6/458965918_7957811400981037_5566549123005287347_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=cf85f3&_nc_ohc=8lAsIlp8hh4Q7kNvgGs1Vnu&_nc_zt=23&_nc_ht=scontent-dfw5-2.xx&_nc_gid=GQzHibv4KLpRXtQit6lEOA&oh=00_AYEjQliPexyMuSkmZ8fu_Wf_rGb7_NgNdESjB1V8jtoJZA&oe=67DDC565",
       tags: ["recycled", "tree-free", "eco-friendly"],
     },
     {
       id: 6,
-      name: "Organic Cotton Tote",
-      brand: "Pure Earth",
+      name: "Construction Wire Rod",
+      brand: "Non-treated Carbon Steel Wire Rod",
       price: 12.99,
       score: 89,
-      image: "/placeholder.svg?height=200&width=200",
+      image: "https://www.deacero.com/images/thumbs/0000251_alambron-para-trefilar.jpeg",
       tags: ["organic", "reusable", "sustainable"],
     },
     {
       id: 7,
-      name: "Bamboo Toothbrush",
-      brand: "EcoSmile",
+      name: "Biofilter",
+      brand: "Bioconstruction",
       price: 4.99,
       score: 86,
-      image: "/placeholder.svg?height=200&width=200",
+      image: "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.30808-6/470691243_8905797902791046_7311592442120738835_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=833d8c&_nc_ohc=HPRJJYyVK6IQ7kNvgEbanlI&_nc_zt=23&_nc_ht=scontent-dfw5-1.xx&_nc_gid=AmREDo9s9mt4ngYWWAD8Kg&oh=00_AYFqPKu4jye0ygfMHwFc-q_AvLQ-SbJ95XjjkQ6U0lJQ4Q&oe=67DDD1FE",
       tags: ["biodegradable", "plastic-free", "sustainable"],
     },
-    {
-      id: 8,
-      name: "Solar Garden Lights",
-      brand: "SunGlow",
-      price: 29.99,
-      score: 91,
-      image: "/placeholder.svg?height=200&width=200",
-      tags: ["solar-powered", "energy-efficient", "eco-friendly"],
-    }
+  
   ];
   // Simulate fetching products
   useEffect(() => {
@@ -137,9 +131,9 @@ export default function SearchPage() {
       {/* Search Header */}
       <header className="p-4 sticky top-0 bg-gray-50 z-10 shadow-sm">
         <div className="flex items-center gap-2 max-w-4xl mx-auto">
-          <Link href="/" className="text-gray-600 hover:text-gray-900 transition-colors">
+          <Button onClick={() => router.back()} className="text-gray-600 hover:text-gray-900 transition-colors">
             <ChevronLeft className="h-6 w-6" />
-          </Link>
+          </Button>
           <div className="relative flex-1">
             <div className="absolute inset-y-0 left-3 flex items-center pointer-events-none">
               <Search className="h-5 w-5 text-gray-400" />
@@ -152,6 +146,7 @@ export default function SearchPage() {
               className="pl-10 pr-4 py-2 w-full rounded-full border-gray-200 bg-white focus:border-green-500 focus:ring-green-500"
             />
           </div>
+          <Link href="/filter">
           <Button
             variant="ghost"
             size="icon"
@@ -160,6 +155,7 @@ export default function SearchPage() {
           >
             <Filter className="h-6 w-6" />
           </Button>
+          </Link>
         </div>
       </header>
 
@@ -219,7 +215,7 @@ export default function SearchPage() {
       </main>
 
       {/* Pagination */}
-      <div className="py-6 flex justify-center">
+      <div className="py-16 flex justify-center">
         <div className="flex gap-2">
           {[1, 2, 3, 4, 5].map((page) => (
             <Button
