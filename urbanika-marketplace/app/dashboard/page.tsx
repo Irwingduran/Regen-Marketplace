@@ -104,7 +104,7 @@ const Dashboard = () => {
       <div className="px-4 py-3 flex items-center">
         <div className="w-12 h-12 mr-3 flex-shrink-0">
           <Image
-            src="/Logo.png"
+            src="/logo.png"
             alt="Urbanika Logo"
             width={48}
             height={48}
@@ -124,6 +124,20 @@ const Dashboard = () => {
       <section className="px-4 py-3">
         <h3 className="text-lg font-semibold text-gray-800 mb-3">Trending</h3>
         <Carousel items={trendingItems} />
+      </section>
+
+      <section className="px-4 py-6 mt-4">
+        <h3 className="text-xl font-bold text-gray-800 mb-3">Check out the dashboard of our users and vendors!</h3>
+    <div className="py-2">
+       <Link href="/dashboard/user"><Button className="w-full py-6 text-white font-medium rounded-full bg-[#3EB57F] hover:bg-[#35a06f]">
+          Dashboard User
+        </Button></Link>
+    </div>
+    <div className="py-2">
+        <Link href="/dashboard/supplier"><Button className="w-full py-6 text-white font-medium rounded-full bg-[#3EB57F] hover:bg-[#35a06f]">
+          Dashboard Seller
+        </Button></Link>
+    </div>
       </section>
 
       {/* Categories */}

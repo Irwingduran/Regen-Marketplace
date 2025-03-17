@@ -8,32 +8,26 @@ export default function Home() {
   const topProducts = [
     {
       id: 1,
-      title: "Smart Solar Panel",
-      price: 299,
+      title: "Water Bottle",
+      price: 9.99,
       rating: 4.9,
-      image: "",
+      image: "/img/water-bottle.webp",
     },
     {
       id: 2,
       title: "Water Filter",
-      price: 199,
+      price: 29.99,
       rating: 4.8,
-      image: "/placeholder.svg?height=100&width=100",
+      image: "/img/water-filter.png",
     },
     {
       id: 3,
-      title: "Energy Monitor",
-      price: 149,
+      title: "Solar Panel",
+      price: 149.99,
       rating: 4.7,
-      image: "/placeholder.svg?height=100&width=100",
+      image: "/img/solar-panel.png",
     },
-    {
-      id: 4,
-      title: "Compost Bin",
-      price: 89,
-      rating: 4.6,
-      image: "/placeholder.svg?height=100&width=100",
-    },
+    
   ]
 
   return (
@@ -62,7 +56,7 @@ export default function Home() {
       <section className="py-16 p-4">
         <div className="flex justify-between items-center mb-4">
           <h2 className="text-lg font-semibold text-textColor">Top Rated Solutions</h2>
-          <a href="#" className="text-green-600 text-sm">
+          <a href="/search" className="text-green-600 text-sm">
             View all
           </a>
         </div>

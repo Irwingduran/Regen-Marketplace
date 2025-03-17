@@ -14,10 +14,9 @@ const Page = () => {
     const slidesRef = useRef<HTMLDivElement>(null)
   
     const slides = [
-      "/placeholder.svg?height=500&width=500",
-      "/placeholder.svg?height=500&width=500",
-      "/placeholder.svg?height=500&width=500",
-      "/placeholder.svg?height=500&width=500",
+      "/img/bottles.jpg",
+      "/img/bottles.jpg",
+     "/img/bottles.jpg",
     ]
   
     const goToSlide = (index: number) => {
@@ -52,7 +51,7 @@ const Page = () => {
     return (
       <> 
       <Menu/>
-      <div className="flex flex-col min-h-screen bg-gray-50" >
+      <div className="flex flex-col min-h-screen" >
         <header className="flex items-center justify-between p-4 bg-white">
           <div className="flex items-center">
             <Button onClick={() => router.back()} className="mr-4">
@@ -128,7 +127,7 @@ const Page = () => {
             </div>
   
             <div className="flex items-center mt-2">
-              <span className="text-xl font-bold text-green-500">$34.99</span>
+              <span className="text-xl font-bold text-green-500">$9.99</span>
               <span className="ml-2 text-xs text-green-600 bg-green-100 px-2 py-0.5 rounded">20% For Rainforest</span>
             </div>
   

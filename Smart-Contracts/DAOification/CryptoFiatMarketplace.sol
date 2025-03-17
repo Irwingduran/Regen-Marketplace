@@ -33,38 +33,37 @@ contract Marketplace {
     }
 
     function createEscrow(
-        uint256 escrowId,
-        address seller,
-        uint256 amount,
-        bool isFiatPayment
-    ) external payable {
-        require(msg.value == amount, "Incorrect payment amount");
-        require(escrows[escrowId].buyer == address(0), "Escrow already exists");
+    uint256 escrowId,
+    address seller,
+    uint256 amount,
+    bool isFiatPayment
+) external payable {
+    require(msg.value == amount, "Incorrect payment amount");
+    require(escrows[escrowId].buyer == address(0), "Escrow already exists");
 
-        // Calculate fee and remaining amount
-        uint256 fee = (amount * FEE_PERCENTAGE) / 100;
-        uint256 remainingAmount = amount - fee;
+    // Calculate fee
+    uint256 fee = (amount * FEE_PERCENTAGE) / 100;
 
-        // Create escrow
-        escrows[escrowId] = Escrow({
-            buyer: msg.sender,
-            seller: seller,
-            amount: amount,
-            isFiatPayment: isFiatPayment,
-            isDelivered: false,
-            isApprovedByBuyer: false,
-            isApprovedBySeller: false,
-            isReleased: false
-        });
+    // Create escrow
+    escrows[escrowId] = Escrow({
+        buyer: msg.sender,
+        seller: seller,
+        amount: amount,
+        isFiatPayment: isFiatPayment,
+        isDelivered: false,
+        isApprovedByBuyer: false,
+        isApprovedBySeller: false,
+        isReleased: false
+    });
 
-        // Add signers to the escrow
-        escrowSigners[escrowId] = [msg.sender, seller, marketplaceWallet];
+    // Add signers to the escrow
+    escrowSigners[escrowId] = [msg.sender, seller, marketplaceWallet];
 
-        // Transfer fee to marketplace wallet
-        payable(marketplaceWallet).transfer(fee);
+    // Transfer fee to marketplace wallet
+    payable(marketplaceWallet).transfer(fee);
 
-        emit EscrowCreated(escrowId, msg.sender, seller, amount);
-    }
+    emit EscrowCreated(escrowId, msg.sender, seller, amount);
+}
 
     function approveEscrow(uint256 escrowId) external {
         Escrow storage escrow = escrows[escrowId];
