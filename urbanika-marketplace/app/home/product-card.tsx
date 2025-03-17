@@ -16,7 +16,7 @@ export default function ProductCard({
 }: ProductCardProps) {
   return (
     <div className="bg-lightPrimary rounded-lg p-3 flex flex-col">
-      <div className="h-24 bg-white rounded mb-3 overflow-hidden">
+      <div className="bg-white rounded mb-3 overflow-hidden">
         <Image
           src={image || "/placeholder.svg"}
           alt={title}

@@ -1,13 +1,22 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import { Leaf, Settings, ArrowRight } from "lucide-react"
+import { Leaf, Settings, ArrowRight, ChevronLeft } from "lucide-react"
+import { useRouter } from 'next/navigation'
+import { Button } from "@/components/ui/button";
+import Menu from "@/components/menu";
 
 export default function SupplierDashboard() {
+  const router = useRouter();
   return (
+    <>
+    <Menu/>
     <div className="mx-auto bg-gray-50 ">
       {/* Header */}
       <header className="flex items-center justify-between p-4 border-b">
+      <Button onClick={() => router.back()} className="text-gray-600 hover:text-gray-900 transition-colors">
+            <ChevronLeft className="h-6 w-6" />
+          </Button>
         <h1 className="text-xl font-medium text-gray-800">Supplier Dashboard</h1>
         <button className="w-10 h-10 rounded-full bg-green-200 flex items-center justify-center">
           <Settings className="w-5 h-5 text-green-600" />
@@ -59,7 +68,7 @@ export default function SupplierDashboard() {
 
         {/* Improve Your Score */}
         <h2 className="text-xl font-medium text-gray-800 pt-2">Improve Your Score</h2>
-        <div className="space-y-4">
+        <div className="space-y-4 py-16">
           <ActionItem
             title="Complete Carbon Footprint Report"
             priority="High Priority"
@@ -81,6 +90,7 @@ export default function SupplierDashboard() {
         </div>
       </div>
     </div>
+</>
   )
 }
 
@@ -179,6 +189,7 @@ interface ActionItemProps {
 
 function ActionItem({ title, priority, priorityColor, steps }: ActionItemProps) {
   return (
+  
     <div className="bg-white p-4 rounded-lg shadow-sm border flex justify-between items-center">
       <div>
         <h3 className="font-medium text-gray-800">{title}</h3>
@@ -187,6 +198,7 @@ function ActionItem({ title, priority, priorityColor, steps }: ActionItemProps) 
       </div>
       <ArrowRight className="w-5 h-5 text-gray-400" />
     </div>
-  )
+    
+      )
 }
 
