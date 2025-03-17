@@ -54,15 +54,20 @@ export default function CartPage() {
           {/* Netflix Subscription */}
           <div className="flex items-center border-b pb-4">
             <div className="h-14 w-14 bg-black flex items-center justify-center mr-3">
-              <span className="text-red-600 font-bold text-xs">NETFLIX</span>
+            <img
+          src="/img/water-bottle.jpeg"
+          alt="Background"
+          className="object-cover w-20 h-20"
+          
+        /> 
             </div>
             <div className="flex-1">
               <div className="flex justify-between">
                 <div>
-                  <h3 className="text-gray-700 font-medium">Netflix Subscription</h3>
+                  <h3 className="text-gray-700 font-medium">Water Bottle</h3>
                   <div className="flex items-center mt-1">
-                    <span className="text-gray-900 font-semibold text-lg">$328</span>
-                    <span className="text-gray-400 line-through ml-2">$400</span>
+                    <span className="text-gray-900 font-semibold text-lg">$9.99</span>
+                    <span className="text-gray-400 line-through ml-2">$17.00</span>
                   </div>
                 </div>
                 <div className="flex items-center">
@@ -91,12 +96,12 @@ export default function CartPage() {
               <div className="flex items-center mt-1">
                 <div className="text-gray-500 text-xs flex items-center">
                   <span className="inline-block h-3 w-3 bg-gray-200 rounded-full mr-1"></span>
-                  instant delivery to your inbox
+                  fast delivery to your address
                 </div>
               </div>
               <div className="mt-2">
                 <span className="inline-flex items-center px-2 py-1 rounded-full text-xs bg-blue-50 text-blue-600">
-                  <span className="mr-1">○</span> 18% off using <span className="ml-1">⟁</span>
+                  <span className="mr-1">○</span> 60% off using <span className="ml-1">⟁</span>
                 </span>
               </div>
             </div>
@@ -107,8 +112,8 @@ export default function CartPage() {
 
         {/* Discount Section */}
         <div className="mt-6 border-t border-b py-4">
-          <h3 className="text-gray-800 font-medium mb-2">Apply discount using Karma</h3>
-          <p className="text-gray-600 mb-2">Karma applied, you are saving $100 on this order.</p>
+          <h3 className="text-gray-800 font-medium mb-2">Apply discount</h3>
+          <p className="text-gray-600 mb-2">Discount applied, you are saving $49 on this order.</p>
           <div className="flex items-center justify-between">
             <button className="bg-blue-100 text-blue-600 px-4 py-2 rounded-full flex items-center">
               <span className="mr-2">⟁</span>
