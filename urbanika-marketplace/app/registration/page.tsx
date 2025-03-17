@@ -4,8 +4,12 @@ import type React from "react"
 
 import { useState } from "react"
 import { ArrowLeft, Upload } from "lucide-react"
+import Menu from "@/components/menu"
+import { Button } from "@/components/ui/button"
+import { useRouter } from 'next/navigation'
 
 export default function SupplierRegistration() {
+    const router = useRouter();
   const [formData, setFormData] = useState({
     companyName: "",
     registrationNumber: "",
@@ -25,13 +29,15 @@ export default function SupplierRegistration() {
   }
 
   return (
+    <> 
+    <Menu/>
     <div className="flex flex-col min-h-screen bg-gray-50">
       {/* Header */}
       <header className="sticky top-0 z-10 bg-white p-4 border-b border-gray-200 flex items-center">
         <button className="mr-4">
-          <ArrowLeft size={20} />
+          <Button onClick={() => router.back()}><ArrowLeft size={20} /></Button>
         </button>
-        <h1 className="text-lg font-medium text-gray-800">Supplier Registration</h1>
+        <h1 className="text-lg font-medium text-gray-800">Seller Registration</h1>
       </header>
 
       <div className="flex-1 p-4 pb-24 overflow-auto">
@@ -206,6 +212,7 @@ export default function SupplierRegistration() {
         </form>
       </div>
     </div>
+    </>
   )
 }
 

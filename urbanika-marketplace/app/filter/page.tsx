@@ -1,7 +1,7 @@
 "use client"
 
 import * as React from "react"
-import { X, Filter, Menu } from 'lucide-react'
+import { X, Filter } from 'lucide-react'
 import { Slider } from "@/components/ui/slider"
 import { Button } from "@/components/ui/button"
 import { Separator } from "@/components/ui/separator"

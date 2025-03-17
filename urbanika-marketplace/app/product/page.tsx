@@ -3,12 +3,13 @@
 import { useState, useRef, useEffect } from "react"
 import { ChevronLeft, Share2 } from "lucide-react"
 import Image from "next/image"
-import Link from "next/link"
 import Menu from "@/components/menu"
-
+import { Button } from "@/components/ui/button"
+import { useRouter } from 'next/navigation'
+import Link from "next/link"
 
 const Page = () => {
-  
+    const router = useRouter();
     const [currentSlide, setCurrentSlide] = useState(0)
     const slidesRef = useRef<HTMLDivElement>(null)
   
@@ -54,9 +55,9 @@ const Page = () => {
       <div className="flex flex-col min-h-screen bg-gray-50" >
         <header className="flex items-center justify-between p-4 bg-white">
           <div className="flex items-center">
-            <Link href="#" className="mr-4">
+            <Button onClick={() => router.back()} className="mr-4">
               <ChevronLeft className="h-5 w-5 text-gray-700" />
-            </Link>
+            </Button>
             <h1 className="text-lg font-medium text-gray-800">Product Details</h1>
           </div>
           <button className="p-1">
@@ -392,7 +393,7 @@ const Page = () => {
   
         {/* Action Buttons */}
         <div className="px-4 py-16 bg-white">
-          <button className="w-full bg-green-500 text-white font-medium py-3 rounded-lg mb-2">Add to cart</button>
+          <Link href="/cart/user"><button className="w-full bg-green-500 text-white font-medium py-3 rounded-lg mb-2">Go to cart</button></Link>
           <button className="w-full bg-green-100 text-green-600 font-medium py-3 rounded-lg">Request a quote</button>
         </div>
       </div>

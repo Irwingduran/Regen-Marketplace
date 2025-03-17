@@ -9,6 +9,7 @@ const nextConfig = {
         'scontent-dfw5-2.xx.fbcdn.net',
         'www.deacero.com',
         'scontent-dfw5-1.xx.fbcdn.net',
+        'www.holcim.com.mx',
       ],
 
     },

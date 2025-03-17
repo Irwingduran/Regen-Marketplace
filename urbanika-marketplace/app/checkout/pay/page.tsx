@@ -3,8 +3,11 @@
 import { ArrowLeft, ShoppingCart, Menu } from "lucide-react"
 import MenuPrincipal from "@/components/menu"
 import Link from "next/link"
+import { Button } from "@/components/ui/button"
+import { useRouter } from 'next/navigation'
 
 export default function OrderSummary() {
+  const router = useRouter();
   return (
     <>
     <MenuPrincipal/>
@@ -12,9 +15,9 @@ export default function OrderSummary() {
       {/* Header */}
       <header className="sticky top-0 bg-white flex items-center justify-between p-4 border-b">
         <div className="flex items-center">
-          <Link href="#" className="mr-3">
+          <Button onClick={() => router.back()} className="mr-3">
             <ArrowLeft size={24} className="text-gray-700" />
-          </Link>
+          </Button>
           <h1 className="text-xl font-medium text-gray-800">Order Summary</h1>
         </div>
         <div className="flex items-center">
@@ -32,10 +35,10 @@ export default function OrderSummary() {
         {/* My Order Section */}
         <div className="mb-6">
           <h2 className="text-xl font-medium text-gray-700 mb-2">My order</h2>
-          <p className="text-gray-600 mb-1">4 Items</p>
+          <p className="text-gray-600 mb-1">1 Item(s)</p>
           <div className="flex items-center">
             <p className="text-gray-500">
-              Order Amount: <span className="line-through">₹1,500</span> <span className="text-gray-700">₹1440</span>
+              Order Amount: <span className="line-through">$100</span> <span className="text-gray-700">$140</span>
             </p>
             <span className="ml-2 text-blue-400 flex items-center">
               applied 60 <span className="ml-1 text-blue-400">🔥</span>
