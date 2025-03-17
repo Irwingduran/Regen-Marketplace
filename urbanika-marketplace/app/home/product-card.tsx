@@ -15,6 +15,7 @@ export default function ProductCard({
   image = "/placeholder.svg?height=100&width=100",
 }: ProductCardProps) {
   return (
+    <a href="/product">
     <div className="bg-lightPrimary rounded-lg p-3 flex flex-col">
       <div className="bg-white rounded mb-3 overflow-hidden">
         <Image
@@ -32,6 +33,7 @@ export default function ProductCard({
       <h3 className="text-sm font-medium text-textColor">{title}</h3>
       <p className="text-sm text-textColor mt-1">${price}</p>
     </div>
+      </a>
   )
 }
 
