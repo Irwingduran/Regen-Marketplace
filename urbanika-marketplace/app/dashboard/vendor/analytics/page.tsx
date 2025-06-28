@@ -331,51 +331,52 @@ export default function AnalyticsPage() {
                 </CardContent>
               </Card>
 
-              {/* Segmentos de Clientes */}
-              <Card>
-                <CardHeader>
-                  <CardTitle>Segmentos de Clientes</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <ChartContainer
-                    config={{
-                      residential: {
-                        label: "Residencial",
-                        color: "#10B981",
-                      },
-                      commercial: {
-                        label: "Comercial",
-                        color: "#3B82F6",
-                      },
-                      industrial: {
-                        label: "Industrial",
-                        color: "#8B5CF6",
-                      },
-                    }}
-                    className="h-[300px]"
-                  >
-                    <ResponsiveContainer width="100%" height="100%">
-                      <PieChart>
-                        <Pie
-                          data={analyticsData.customerSegments}
-                          cx="50%"
-                          cy="50%"
-                          labelLine={false}
-                          label={({ name, percent }) => `${name} ${(percent * 100).toFixed(0)}%`}
-                          outerRadius={80}
-                          fill="#8884d8"
-                          dataKey="value"
-                        >
-                          {analyticsData.customerSegments.map((entry, index) => (
-                            <Cell key={`cell-${index}`} fill={entry.color} />
-                          ))}
-                        </Pie>
-                        <ChartTooltip />
-                      </PieChart>
-                    </ResponsiveContainer>
-                  </ChartContainer>
-                </CardContent>
-              </Card>
+             {/* Segmentos de Clientes */}
+  <Card>
+  <CardHeader>
+    <CardTitle>Segmentos de Clientes</CardTitle>
+  </CardHeader>
+  <CardContent>
+    <ChartContainer
+      config={{
+        residential: {
+          label: "Residencial",
+          color: "#10B981",
+        },
+        commercial: {
+          label: "Comercial",
+          color: "#3B82F6",
+        },
+        industrial: {
+          label: "Industrial",
+          color: "#8B5CF6",
+        },
+      }}
+      className="h-[300px]"
+    >
+      <ResponsiveContainer width="100%" height="100%">
+        <PieChart>
+        <Pie
+  data={analyticsData.customerSegments}
+  cx="50%"
+  cy="50%"
+  labelLine={false}
+  label={({ name, percent }) => `${name} ${((percent ?? 0) * 100).toFixed(0)}%`}
+  outerRadius={80}
+  fill="#8884d8"
+  dataKey="value"
+>
+  {analyticsData.customerSegments.map((entry, index) => (
+    <Cell key={`cell-${index}`} fill={entry.color} />
+  ))}
+</Pie>
+
+          <ChartTooltip />
+        </PieChart>
+      </ResponsiveContainer>
+    </ChartContainer>
+  </CardContent>
+  </Card>
             </div>
           </TabsContent>
 
