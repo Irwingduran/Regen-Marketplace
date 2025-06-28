@@ -22,6 +22,7 @@ import {
   Eye,
 } from "lucide-react"
 import Link from "next/link"
+import Image from "next/image"
 
 // Mock data
 const userStats = {
@@ -252,7 +253,7 @@ export default function UserDashboard() {
                   {recommendations.map((product) => (
                     <div key={product.id} className="border rounded-lg p-4 hover:shadow-md transition-shadow">
                       <div className="flex items-start space-x-4">
-                        <img
+                        <Image
                           src={product.image || "/placeholder.svg"}
                           alt={product.name}
                           className="w-16 h-16 rounded-lg object-cover"
@@ -351,7 +352,7 @@ export default function UserDashboard() {
                   {wishlistItems.map((item) => (
                     <div key={item.id} className="flex items-center justify-between p-4 border rounded-lg">
                       <div className="flex items-center space-x-4">
-                        <img
+                        <Image
                           src={item.image || "/placeholder.svg"}
                           alt={item.name}
                           className="w-16 h-16 rounded-lg object-cover"

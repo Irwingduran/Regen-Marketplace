@@ -249,7 +249,7 @@ export default function RegenScoreChart({ data }: RegenScoreChartProps) {
                 <span className="font-medium text-blue-900">Próximo Objetivo</span>
               </div>
               <p className="text-sm text-blue-700">
-                Estás a solo 12 puntos de alcanzar el nivel "Excelente" (90 puntos). Continúa mejorando tus métricas de
+                Estás a solo 12 puntos de alcanzar el nivel &quot;Excelente&quot; (90 puntos). Continúa mejorando tus métricas de
                 agua.
               </p>
             </div>

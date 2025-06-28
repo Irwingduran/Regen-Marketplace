@@ -4,6 +4,7 @@ import { useState, useCallback } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
+import Image from "next/image"
 import { Progress } from "@/components/ui/progress"
 import {
   Award,
@@ -130,9 +131,11 @@ export default function NFTEducation({ userType, onComplete }: NFTEducationProps
               <Card key={index} className="border-2 border-gray-200 hover:border-green-500 transition-colors">
                 <CardContent className="p-6 text-center">
                   <div className="relative mb-4">
-                    <img
+                    <Image
                       src={nft.image || "/placeholder.svg"}
                       alt={nft.name}
+                      width={96}
+                      height={96}
                       className="w-24 h-24 mx-auto rounded-full"
                     />
                     <Badge

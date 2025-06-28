@@ -8,7 +8,7 @@ import Link from "next/link"
 
 interface CompletionProps {
   userType: "vendor" | "user" | null
-  formData: any
+  formData: Record<string, unknown>
 }
 
 export default function Completion({ userType, formData }: CompletionProps) {

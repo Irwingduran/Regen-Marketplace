@@ -12,6 +12,7 @@ import NFTEvolutionHistory from "@/components/profile/nft-evolution-history"
 import ProductsServices from "@/components/profile/products-services"
 import EnvironmentalImpact from "@/components/profile/environmental-impact"
 import CustomerReviews from "@/components/profile/customer-reviews"
+import Image from "next/image"
 
 // Mock data - En producción vendría de la API
 const vendorProfileData = {
@@ -235,7 +236,7 @@ export default function VendorProfile() {
         {/* Profile Header */}
         <div className="relative mb-8">
           <div className="h-48 bg-gradient-to-r from-green-400 to-blue-500 rounded-xl overflow-hidden">
-            <img
+            <Image
               src={vendorProfileData.company.coverImage || "/placeholder.svg"}
               alt="Company Cover"
               className="w-full h-full object-cover opacity-80"
@@ -243,7 +244,7 @@ export default function VendorProfile() {
           </div>
           <div className="absolute -bottom-16 left-8">
             <div className="w-32 h-32 bg-white rounded-xl shadow-lg p-4">
-              <img
+              <Image
                 src={vendorProfileData.company.logo || "/placeholder.svg"}
                 alt={vendorProfileData.company.name}
                 className="w-full h-full object-contain"

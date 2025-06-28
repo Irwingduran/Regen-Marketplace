@@ -53,7 +53,7 @@ const availableCategories = [
 ]
 
 export function MarketplaceFilters({ filters, setFilters }: MarketplaceFiltersProps) {
-  const updateFilter = (key: keyof Filters, value: any) => {
+  const updateFilter = (key: keyof Filters, value: Filters[keyof Filters]) => {
     setFilters({
       ...filters,
       [key]: value,

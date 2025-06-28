@@ -58,7 +58,7 @@ export function useVendorForm(initialData?: Partial<VendorFormData>) {
 
   const [currentSection, setCurrentSection] = useState(0)
 
-  const handleInputChange = useCallback((field: string, value: any) => {
+  const handleInputChange = useCallback((field: string, value: string) => {
     setFormData((prev) => ({
       ...prev,
       [field]: value,

@@ -4,6 +4,7 @@ import { useState } from "react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
+import Image from "next/image"
 import { Input } from "@/components/ui/input"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import { Search, Filter, MoreHorizontal, Edit, Eye, RefreshCw, Leaf } from "lucide-react"
@@ -98,9 +99,11 @@ export default function ProductStock({ products }: ProductStockProps) {
               className="flex items-center justify-between p-4 border border-gray-200 rounded-lg hover:bg-gray-50"
             >
               <div className="flex items-center space-x-4">
-                <img
+                <Image
                   src={product.image || "/placeholder.svg"}
                   alt={product.name}
+                  width={64}
+                  height={64}
                   className="w-16 h-16 rounded-lg object-cover"
                 />
                 <div className="flex-1">

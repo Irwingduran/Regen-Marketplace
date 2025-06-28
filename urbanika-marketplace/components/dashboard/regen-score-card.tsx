@@ -124,7 +124,7 @@ export default function RegenScoreCard({ score, metrics }: RegenScoreCardProps) 
             <span className="text-sm font-medium text-green-900">Próximo Nivel</span>
           </div>
           <p className="text-xs text-green-700">
-            Necesitas 12 puntos más para alcanzar el nivel "Excelente" (90 puntos)
+            Necesitas 12 puntos más para alcanzar el nivel &quot;Excelente&quot; (90 puntos)
           </p>
         </div>
       </CardContent>

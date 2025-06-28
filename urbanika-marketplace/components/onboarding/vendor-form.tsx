@@ -9,19 +9,19 @@ import { Textarea } from "@/components/ui/textarea"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Checkbox } from "@/components/ui/checkbox"
-import { Store, MapPin, Phone, Mail, FileText, Award, Leaf, Users, Globe, Lightbulb } from "lucide-react"
-import { useVendorForm, sections, certificationOptions, VendorFormData } from "./useVendorForm"
+import { Phone, Mail, FileText, Award, Users, Globe, Lightbulb } from "lucide-react"
+import { useVendorForm, sections, certificationOptions } from "./useVendorForm"
+
+import type { VendorFormData } from "./useVendorForm"
 
 interface VendorFormProps {
-  onSubmit: (data: any) => void
+  onSubmit: (data: Partial<VendorFormData>) => void
 }
 
 export default function VendorForm({ onSubmit }: VendorFormProps) {
   const {
     formData,
-    setFormData,
     currentSection,
-    setCurrentSection,
     handleInputChange,
     handleMetricChange,
     handleCertificationToggle,
@@ -132,8 +132,8 @@ export default function VendorForm({ onSubmit }: VendorFormProps) {
                   <div>
                     <h4 className="font-semibold text-blue-900 mb-1">💡 ¿Sabías que?</h4>
                     <p className="text-sm text-blue-700">
-                      Tu NFT inicial se basará en la categoría que selecciones. Por ejemplo, si eliges "Energía Limpia",
-                      recibirás un NFT "Rayo Solar" que evolucionará según tus métricas de energía renovable.
+                      Tu NFT inicial se basará en la categoría que selecciones. Por ejemplo, si eliges &quot;Energía Limpia&quot;,
+                      recibirás un NFT &quot;Rayo Solar&quot; que evolucionará según tus métricas de energía renovable.
                     </p>
                   </div>
                 </div>

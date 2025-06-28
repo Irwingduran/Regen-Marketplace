@@ -17,13 +17,12 @@ import {
   Recycle,
 } from "lucide-react"
 
+
 interface RecommendationsPanelProps {
   score: number
-  metrics: any
-  certifications: any[]
 }
 
-export default function RecommendationsPanel({ score, metrics, certifications }: RecommendationsPanelProps) {
+export default function RecommendationsPanel({ score }: RecommendationsPanelProps) {
   const recommendations = [
     {
       id: 1,

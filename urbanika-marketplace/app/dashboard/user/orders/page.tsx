@@ -21,6 +21,7 @@ import {
   MapPin,
   Calendar,
 } from "lucide-react"
+import Image from "next/image"
 
 // Mock orders data
 const ordersData = [
@@ -177,8 +178,7 @@ const getStatusIcon = (status: string) => {
 export default function UserOrders() {
   const [searchTerm, setSearchTerm] = useState("")
   const [activeTab, setActiveTab] = useState("all")
-  const [selectedOrder, setSelectedOrder] = useState<string | null>(null)
-
+  
   const filteredOrders = ordersData.filter((order) => {
     const matchesSearch =
       order.id.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -252,7 +252,6 @@ export default function UserOrders() {
             ) : (
               filteredOrders.map((order) => {
                 const StatusIcon = getStatusIcon(order.status)
-                const isExpanded = selectedOrder === order.id
 
                 return (
                   <Card key={order.id} className="overflow-hidden">
@@ -286,7 +285,7 @@ export default function UserOrders() {
                       <div className="space-y-3">
                         {order.items.map((item) => (
                           <div key={item.id} className="flex items-center space-x-4 p-3 bg-gray-50 rounded-lg">
-                            <img
+                            <Image
                               src={item.image || "/placeholder.svg"}
                               alt={item.name}
                               className="w-12 h-12 rounded-lg object-cover"

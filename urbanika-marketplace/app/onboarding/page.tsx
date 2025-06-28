@@ -1,5 +1,4 @@
 "use client"
-
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader } from "@/components/ui/card"
@@ -11,6 +10,7 @@ import VendorForm from "@/components/onboarding/vendor-form"
 import UserForm from "@/components/onboarding/user-form"
 import NFTEducation from "@/components/onboarding/nft-education"
 import Completion from "@/components/onboarding/completion"
+import { VendorFormData } from "@/components/onboarding/useVendorForm"
 
 const steps = [
   { id: "type", title: "Tipo de Usuario", icon: Users },
@@ -19,10 +19,22 @@ const steps = [
   { id: "completion", title: "Completado", icon: CheckCircle },
 ]
 
+interface UserFormData {
+  firstName: string
+  lastName: string
+  email: string
+  location: string
+  interests: string[]
+  sustainabilityGoals: string[]
+  monthlyBudget: string
+}
+
+type OnboardingFormData = VendorFormData | UserFormData;
+
 export default function OnboardingPage() {
   const [currentStep, setCurrentStep] = useState(0)
   const [userType, setUserType] = useState<"vendor" | "user" | null>(null)
-  const [formData, setFormData] = useState({})
+  const [formData, setFormData] = useState<OnboardingFormData | null>(null)
 
   const currentStepId = steps[currentStep].id
   const progress = ((currentStep + 1) / steps.length) * 100
@@ -44,7 +56,7 @@ export default function OnboardingPage() {
     nextStep()
   }
 
-  const handleFormSubmit = (data: any) => {
+  const handleFormSubmit = (data: OnboardingFormData) => {
     setFormData(data)
     nextStep()
   }
@@ -96,7 +108,6 @@ export default function OnboardingPage() {
                 const Icon = step.icon
                 const isActive = index === currentStep
                 const isCompleted = index < currentStep
-
                 return (
                   <div key={step.id} className="flex items-center">
                     <div
@@ -122,14 +133,10 @@ export default function OnboardingPage() {
           <Card>
             <CardContent className="p-8">
               {currentStepId === "type" && <UserTypeSelection onSelect={handleUserTypeSelect} />}
-
               {currentStepId === "form" && userType === "vendor" && <VendorForm onSubmit={handleFormSubmit} />}
-
               {currentStepId === "form" && userType === "user" && <UserForm onSubmit={handleFormSubmit} />}
-
               {currentStepId === "education" && <NFTEducation userType={userType} onComplete={nextStep} />}
-
-              {currentStepId === "completion" && <Completion userType={userType} formData={formData} />}
+              {currentStepId === "completion" && <Completion userType={userType} formData={formData ?? {}} />}
             </CardContent>
           </Card>
 
@@ -145,7 +152,6 @@ export default function OnboardingPage() {
                 <ArrowLeft className="w-4 h-4" />
                 <span>Anterior</span>
               </Button>
-
               <div className="flex items-center space-x-2 text-sm text-gray-500">
                 <Lightbulb className="w-4 h-4" />
                 <span>¿Necesitas ayuda? Chatea con nosotros</span>

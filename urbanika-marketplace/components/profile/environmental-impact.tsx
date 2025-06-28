@@ -6,8 +6,14 @@ import { Button } from "@/components/ui/button"
 import { Progress } from "@/components/ui/progress"
 import { TreePine, Droplets, Zap, Recycle, Globe, Users, TrendingUp, Download, Share2 } from "lucide-react"
 
+interface Product {
+  id: string;
+  name: string;
+  // Add other relevant fields as needed
+}
+
 interface EnvironmentalImpactProps {
-  products: any[]
+  products: Product[]
   overallImpact: {
     totalCO2Saved: string
     totalWaterSaved: string

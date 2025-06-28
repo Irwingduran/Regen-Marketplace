@@ -18,7 +18,7 @@ const nftLevels = [
   { name: "Bosque Guardián", minScore: 90, maxScore: 100, color: "from-yellow-400 to-yellow-500" },
 ]
 
-export default function NFTEvolutionCard({ currentLevel, score }: NFTEvolutionCardProps) {
+export default function NFTEvolutionCard({ score }: NFTEvolutionCardProps) {
   const currentNFT = nftLevels.find((level) => score >= level.minScore && score <= level.maxScore) || nftLevels[0]
 
   const nextNFT = nftLevels.find((level) => level.minScore > score)

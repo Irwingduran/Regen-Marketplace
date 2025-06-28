@@ -4,11 +4,11 @@ import { useState } from "react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Badge } from "@/components/ui/badge"
 import { Package, Plus, AlertTriangle, TrendingUp, Leaf, RefreshCw } from "lucide-react"
 import VendorHeader from "@/components/dashboard/vendor-header"
 import ProductStock from "@/components/inventory/product-stock"
 import AddProductForm from "@/components/inventory/add-product-form"
+import Image from "next/image"
 
 // Mock data para el inventario
 const inventoryData = {
@@ -91,25 +91,7 @@ const vendorData = {
 
 export default function InventoryPage() {
   const [activeTab, setActiveTab] = useState("overview")
-  const [searchTerm, setSearchTerm] = useState("")
   const [showAddProduct, setShowAddProduct] = useState(false)
-
-  const getStatusBadge = (status: string, stock: number, minStock: number) => {
-    if (status === "out_of_stock" || stock === 0) {
-      return <Badge className="bg-red-100 text-red-800">Agotado</Badge>
-    }
-    if (status === "low_stock" || stock <= minStock) {
-      return <Badge className="bg-yellow-100 text-yellow-800">Stock Bajo</Badge>
-    }
-    return <Badge className="bg-green-100 text-green-800">Disponible</Badge>
-  }
-
-  const getRegenScoreBadge = (score: number) => {
-    if (score >= 90) return <Badge className="bg-green-100 text-green-800">Excelente</Badge>
-    if (score >= 80) return <Badge className="bg-blue-100 text-blue-800">Muy Bueno</Badge>
-    if (score >= 70) return <Badge className="bg-yellow-100 text-yellow-800">Bueno</Badge>
-    return <Badge className="bg-gray-100 text-gray-800">Regular</Badge>
-  }
 
   if (showAddProduct) {
     return (
@@ -234,7 +216,7 @@ export default function InventoryPage() {
                         className="flex items-center justify-between p-3 bg-red-50 border border-red-200 rounded-lg"
                       >
                         <div className="flex items-center space-x-3">
-                          <img
+                          <Image
                             src={product.image || "/placeholder.svg"}
                             alt={product.name}
                             className="w-10 h-10 rounded-lg object-cover"

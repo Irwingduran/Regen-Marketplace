@@ -4,6 +4,7 @@ import { useState } from "react"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
+import Image from "next/image"
 import {
   Star,
   MapPin,
@@ -73,10 +74,12 @@ export function ProductCard({ product, viewMode }: ProductCardProps) {
           <div className="flex gap-6">
             {/* Product Image */}
             <div className="relative w-32 h-32 flex-shrink-0">
-              <img
+              <Image
                 src={product.image || "/placeholder.svg"}
                 alt={product.name}
+                fill
                 className="w-full h-full object-cover rounded-lg"
+                sizes="128px"
               />
               {product.featured && <Badge className="absolute top-2 left-2 bg-yellow-500 text-white">Destacado</Badge>}
               {!product.inStock && (
@@ -229,10 +232,13 @@ export function ProductCard({ product, viewMode }: ProductCardProps) {
   return (
     <Card className="group hover:shadow-lg transition-all duration-300 overflow-hidden">
       <div className="relative">
-        <img
+        <Image
           src={product.image || "/placeholder.svg"}
           alt={product.name}
+          width={400}
+          height={192}
           className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+          sizes="400px"
         />
 
         {/* Overlay badges */}

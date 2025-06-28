@@ -11,18 +11,28 @@ import { Badge } from "@/components/ui/badge"
 import { Checkbox } from "@/components/ui/checkbox"
 import { User, Mail, MapPin, Heart, Leaf, Droplets, Zap, Recycle, Lightbulb } from "lucide-react"
 
+interface UserFormData {
+  firstName: string
+  lastName: string
+  email: string
+  location: string
+  interests: string[]
+  sustainabilityGoals: string[]
+  monthlyBudget: string
+}
+
 interface UserFormProps {
-  onSubmit: (data: any) => void
+  onSubmit: (data: UserFormData) => void
 }
 
 export default function UserForm({ onSubmit }: UserFormProps) {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<UserFormData>({
     firstName: "",
     lastName: "",
     email: "",
     location: "",
-    interests: [] as string[],
-    sustainabilityGoals: [] as string[],
+    interests: [],
+    sustainabilityGoals: [],
     monthlyBudget: "",
   })
 
@@ -44,7 +54,7 @@ export default function UserForm({ onSubmit }: UserFormProps) {
     "Educación ambiental familiar",
   ]
 
-  const handleInputChange = useCallback((field: string, value: any) => {
+  const handleInputChange = useCallback((field: keyof UserFormData, value: string | string[]) => {
     setFormData((prev) => ({
       ...prev,
       [field]: value,
